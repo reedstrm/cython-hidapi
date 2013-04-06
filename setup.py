@@ -7,5 +7,6 @@ os.environ['LDFLAGS'] = "-L/usr/lib/i386-linux-gnu -lusb-1.0 -ludev -lrt"
 
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [Extension("hid", ["hid.pyx", "hid-libusb.c"])]
+    ext_modules = [Extension("hid", ["hid.pyx", "hid-libusb.c"],
+                  libraries=["usb-1.0", "udev", "rt"])]
 )
